@@ -1,6 +1,7 @@
-(ns nhs-obesity.core)
+(ns nhs-obesity.core
+  (:require [incanter.io :as i]
+            [incanter.datasets :as d]))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(def stats (i/read-dataset "https://catalogue.ic.nhs.uk/publications/public-health/obesity/obes-phys-acti-diet-eng-2013/obes-phys-acti-diet-eng-2013-csv-tab.csv"))
+
+(take 12 (drop 59 (:rows stats)))
